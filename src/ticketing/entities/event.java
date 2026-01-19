@@ -7,7 +7,7 @@ public class event {
     private String venue;
     private LocalDateTime eventdate;
     private boolean cancelled;
-    public event (int id, String title, String venue, LocalDateTime eventdate, boolean cancelled) {
+    public event (int id, String title, String venue, LocalDateTime eventdaSte, boolean cancelled) {
         this.id = id;
         this.title = title;
         this.venue = venue;
