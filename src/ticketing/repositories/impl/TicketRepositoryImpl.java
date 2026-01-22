@@ -3,7 +3,7 @@ package ticketing.repositories.impl;
 import ticketing.entities.Ticket;
 import ticketing.repositories.interfaces.TicketRepository;
 
-public class TicketRepositoryImpl implements TicketRepository {
+    public class TicketRepositoryImpl implements TicketRepository {
 
     @Override
     public Ticket findByCode(String code) {
@@ -11,7 +11,7 @@ public class TicketRepositoryImpl implements TicketRepository {
     }
 
     @Override
-    public void create(Ticket ticket) {
+    public void creat(Ticket ticket) {
         // TODO: JDCB
     }
 }
