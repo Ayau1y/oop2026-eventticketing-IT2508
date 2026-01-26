@@ -22,8 +22,8 @@ public class Ticket {
         this.code=code;
     }
     public int getId (){return id;}
-    public int getEventid (){ return eventid;}
-    public int getSeatid() {return seatid;}
+    public int getEventId (){ return eventid;}
+    public int getSeatId() {return seatid;}
     public int getCustomerId() {return customerid;}
     public String getCode() {return code;}
 
