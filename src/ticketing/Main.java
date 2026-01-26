@@ -1,25 +1,39 @@
 package ticketing;
 
-import ticketing.data.DatabaseConnection;
+import ticketing.entities.Event;
+import ticketing.repositories.impl.SeatRepositoryImpl;
+import ticketing.repositories.interfaces.SeatRepository;
 import ticketing.repositories.interfaces.EventRepository;
 import ticketing.repositories.impl.EventRepositoryImpl;
-
-import java.sql.Connection;
+import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Starting Event Ticketing System");
+        EventRepository eventRepository = new EventRepositoryImpl();
+        SeatRepository seatRepository = new SeatRepositoryImpl();
+        Scanner scanner = new Scanner(System.in);
 
-        try (Connection connection = DatabaseConnection.getConnection()) {
-            System.out.println("Database connection successful");
-        } catch (Exception e) {
-            System.out.println("Database connection failed");
-            e.printStackTrace();
+        List<Event> events = eventRepository.findAll();
+        System.out.println("List of events");
+        for (Event event : events) {
+            System.out.println(event.getId() + event.getTitle() +
+                    " | " + event.getVenue() +
+                    " | " + event.getEventDate());
         }
 
-        EventRepository eventRepository = new EventRepositoryImpl();
-        System.out.println("EventRepository initialized");
+        System.out.print("Enter the event ID to check availability");
+        int eventId = scanner.nextInt();
+        scanner.nextLine();
 
-        System.out.println("System is ready");
+        System.out.print("Enter seat number");
+        String seatNumber = scanner.nextLine();
+
+        boolean available = seatRepository.isSeatAvailable(eventId, seatNumber);
+        if (available) {
+            System.out.println(seatNumber +" "+ "available!");
+        } else {
+            System.out.println(seatNumber + "already taken!");
+        }
     }
 }
