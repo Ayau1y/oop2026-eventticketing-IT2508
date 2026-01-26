@@ -11,9 +11,7 @@ public class SeatRepositoryImpl implements SeatRepository {
 
     @Override
     public boolean isSeatAvailable(int eventId, String seatNumber) {
-        String sql = "SELECT COUNT(*) FROM tickets t " +
-                "JOIN seats s ON t.seat_id = s.id " +
-                "WHERE s.event_id = ? AND s.seat_number = ?";
+        String sql = "SELECT booked FROM seats WHERE event_id = ? AND seat_number = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -22,7 +20,8 @@ public class SeatRepositoryImpl implements SeatRepository {
 
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                return rs.getInt(1) == 0;
+                boolean booked = rs.getBoolean("booked");
+                return !booked;
             }
 
         } catch (Exception e) {
@@ -31,4 +30,3 @@ public class SeatRepositoryImpl implements SeatRepository {
         return false;
     }
 }
-//
