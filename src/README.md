@@ -1,2 +1,2 @@
 Event Ticketing System
-Members: Ayauly KOralasbayeva ,Azamat Ziadanov
+Members: Ayauly Koralasbayeva ,Azamat Ziadanov
