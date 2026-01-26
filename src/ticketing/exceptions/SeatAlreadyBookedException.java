@@ -5,4 +5,3 @@ public class SeatAlreadyBookedException extends RuntimeException {
         super(message);
     }
 }
-
