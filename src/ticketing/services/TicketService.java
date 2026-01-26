@@ -4,7 +4,8 @@ import ticketing.entities.Ticket;
 import ticketing.exceptions.InvalidTicketCodeException;
 import ticketing.repositories.interfaces.TicketRepository;
 
-public class TicketService {
+public class
+TicketService {
 
     private final TicketRepository ticketRepository;
 
@@ -24,6 +25,6 @@ public class TicketService {
     }
 
     public void buyTicket(Ticket ticket) {
-        ticketRepository.creat(ticket);
+        ticketRepository.create(ticket);
     }
 }
