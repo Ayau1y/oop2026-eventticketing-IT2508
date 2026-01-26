@@ -12,7 +12,7 @@ import ticketing.repositories.interfaces.CustomerRepository;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerRepositoryImpl implements CustomerRepository {
+public class  CustomerRepositoryImpl implements CustomerRepository {
     @Override
     public void create(Customer customer) {
         String sql = "INSERT INTO customers (name, email) VALUES (?, ?, ?)";
