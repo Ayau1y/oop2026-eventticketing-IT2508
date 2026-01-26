@@ -23,7 +23,17 @@ public class Event {
     public int getId() {return id;}
     public String getTitle() {return title;}
     public String getVenue() {return venue;}
-    public LocalDateTime geteventdate() {return eventdate;}
+    public LocalDateTime getEventDate() {return eventdate;}
     public boolean isCancelled() {return cancelled;}
     public void setCancelled(boolean cancelled) {this.cancelled = cancelled;}
+    @Override
+    public String toString() {
+        return "Event{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", venue='" + venue + '\'' +
+                ", eventdate=" + eventdate +
+                ", cancelled=" + cancelled +
+                '}';
+    }
 }
