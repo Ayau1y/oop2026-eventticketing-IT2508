@@ -20,6 +20,7 @@ public class SeatRepositoryImpl implements SeatRepository {
 
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
+
                 boolean booked = rs.getBoolean("booked");
                 return !booked;
             }
