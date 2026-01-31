@@ -33,7 +33,7 @@ public class Main {
         if (available) {
             System.out.println(seatNumber +" "+ "available!");
         } else {
-            System.out.println(seatNumber + "already taken!");
+            System.out.println(seatNumber +" " +"already taken!");
         }
     }
 }

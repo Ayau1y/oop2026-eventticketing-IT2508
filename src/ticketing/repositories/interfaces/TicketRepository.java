@@ -7,4 +7,3 @@ TicketRepository {
     Ticket findByCode(String code);
     void create(Ticket ticket);
 }
-

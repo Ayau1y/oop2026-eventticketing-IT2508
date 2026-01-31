@@ -9,4 +9,3 @@ public interface EventRepository {
     void create(Event event);
     Event findById(int id);
 }
-//
