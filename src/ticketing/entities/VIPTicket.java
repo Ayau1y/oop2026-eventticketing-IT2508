@@ -8,5 +8,5 @@ public class VIPTicket extends Ticket {
     @Override
     public double getPrice() {return price + vipfee ;}
     @Override
-    public String getType() {return "VIP";}
+    public String getType()  {return "VIP";}
 }

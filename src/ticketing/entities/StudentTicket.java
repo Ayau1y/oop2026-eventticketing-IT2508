@@ -10,5 +10,5 @@ public class StudentTicket extends Ticket {
     @Override
     public double getPrice() {return price * (1 - discount);}
     @Override
-    public String getType() {return "STUDENT";}
+    public String getType()  {return "STUDENT";}
 }
