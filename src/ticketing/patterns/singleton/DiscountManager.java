@@ -7,5 +7,5 @@ public class DiscountManager {
     public static DiscountManager getInstance() {
         if (instance == null) {instance = new DiscountManager();}
         return instance;}
-    public double applyStudentDiscount(double price) {return price * 0.8;}
+    public double applyStudentDiscount(double price) {return price *  0.8;}
 }
