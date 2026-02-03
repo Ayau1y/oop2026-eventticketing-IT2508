@@ -7,17 +7,9 @@ import java.util.List;
 
 public class  CustomerRepositoryImpl implements CustomerRepository {
     @Override
-    public void create(Customer customer) {
-
-    }
-
+    public void create(Customer customer) {}
     @Override
-    public Customer findById(int id) {
-        return null;
-    }
-
+    public Customer findById(int id) {return null;}
     @Override
-    public List<Customer> findAll() {
-        return new ArrayList<>();
-    }
+    public List<Customer> findAll() {return new ArrayList<>();}
 }

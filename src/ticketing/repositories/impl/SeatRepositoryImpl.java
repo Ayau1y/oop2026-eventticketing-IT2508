@@ -1,11 +1,14 @@
 package ticketing.repositories.impl;
 
 import ticketing.data.DatabaseConnection;
+import ticketing.entities.Seat;
 import ticketing.repositories.interfaces.SeatRepository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SeatRepositoryImpl implements SeatRepository {
 
@@ -17,10 +20,8 @@ public class SeatRepositoryImpl implements SeatRepository {
 
             stmt.setInt(1, eventId);
             stmt.setString(2, seatNumber);
-
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-
                 boolean booked = rs.getBoolean("booked");
                 return !booked;
             }
@@ -30,5 +31,11 @@ public class SeatRepositoryImpl implements SeatRepository {
         }
         return false;
     }
+    @Override
+    public List<Seat> findAll() {return new ArrayList<>();}
+    @Override
+    public Seat findById(int id) {return null;}
+
+    @Override
+    public void create(Seat entity) {}
 }
-//
