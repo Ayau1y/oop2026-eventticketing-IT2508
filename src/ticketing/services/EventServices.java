@@ -2,28 +2,30 @@ package ticketing.services;
 
 import ticketing.entities.Event;
 import ticketing.repositories.interfaces.EventRepository;
-import ticketing.exceptions.EventCancelledException;
+import java.util.List;
+import java.util.Comparator;
+import java.util.stream.Collectors;
 
 public class EventServices {
+    private final EventRepository repo;
 
-    private final EventRepository eventRepository;
-
-    public EventServices(EventRepository eventRepository) {
-        this.eventRepository = eventRepository;
+    public EventServices(EventRepository repo) {
+        this.repo = repo;
     }
-
-    public void createEvent(Event event) {
-        eventRepository.create(event);
+    public List<Event> getActiveEvents() {
+        return repo.findAll().stream()
+                .filter(e -> !e.isCancelled())
+                .collect(Collectors.toList());
     }
-
-    public Event getEventByeId(int id) {
-        Event event = eventRepository.findById(id);
-
-        if (event != null && event.isCancelled()) {
-            throw new EventCancelledException("Event is cancelled");
-        }
-
-        return event;
+    public List<Event> getEventsSortedByDate() {
+        return repo.findAll().stream()
+                .sorted(Comparator.comparing(Event::getEventDate))
+                .collect(Collectors.toList());
+    }
+    public Event getEventById(int id) {
+        return repo.findAll().stream()
+                .filter(e -> e.getId() == id)
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Event not found with id: " + id));
     }
 }
-//
