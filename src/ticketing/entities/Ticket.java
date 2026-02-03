@@ -1,30 +1,35 @@
 package ticketing.entities;
 
-public class Ticket {
-    private int id;
-    private int eventid;
-    private int seatid;
-    private int customerid;
-    private String code;
-    public Ticket(int id, int eventid, int seatid, int customerid, String code)
-    {
-        this.id=id;
-        this.eventid=eventid;
-        this.seatid=seatid;
-        this.customerid=customerid;
-        this.code=code;
-    }
-    public Ticket(int eventid, int seatid, int customerid, String code)
-    {
-        this.eventid=eventid;
-        this.seatid=seatid;
-        this.customerid=customerid;
-        this.code=code;
-    }
-    public int getId (){return id;}
-    public int getEventId (){ return eventid;}
-    public int getSeatId() {return seatid;}
-    public int getCustomerId() {return customerid;}
-    public String getCode() {return code;}
+public abstract class Ticket {
 
+    protected int id;
+    protected String code;
+    protected int eventId;
+    protected int seatId;
+    protected Customer customer;
+    protected double price;
+    protected boolean booked;
+
+    public Ticket(int id, String code, int eventId, int seatId, Customer customer, double price) {
+        this.id = id;
+        this.code = code;
+        this.eventId = eventId;
+        this.seatId = seatId;
+        this.customer = customer;
+        this.price = price;
+        this.booked = false;
+    }
+
+    public int getId() { return id; }
+    public String getCode() { return code; }
+    public int getEventId() { return eventId; }
+    public int getSeatId() { return seatId; }
+    public Customer getCustomer() { return customer; }
+    public double getPrice() { return price; }
+    public boolean isBooked() { return booked; }
+
+    public void book() {
+        this.booked = true;
+    }
+    public abstract String getType();
 }

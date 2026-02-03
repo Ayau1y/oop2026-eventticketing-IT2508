@@ -1,39 +1,40 @@
 package ticketing.entities;
-
 import java.time.LocalDateTime;
+
 public class Event {
     private int id;
     private String title;
     private String venue;
-    private LocalDateTime eventdate;
+    private LocalDateTime eventDate;
     private boolean cancelled;
-    public Event(int id, String title, String venue, LocalDateTime eventdate, boolean cancelled) {
-        this.id = id;
-        this.title = title;
-        this.venue = venue;
-        this.eventdate = eventdate;
-        this.cancelled = cancelled;
+
+    private Event(Builder builder) {
+        this.id = builder.id;
+        this.title = builder.title;
+        this.venue = builder.venue;
+        this.eventDate = builder.eventDate;
+        this.cancelled = builder.cancelled;
     }
-    public Event(String title, String venue, LocalDateTime eventdate) {
-        this.title = title;
-        this.venue = venue;
-        this.eventdate = eventdate;
-        this.cancelled = false;
-    }
-    public int getId() {return id;}
-    public String getTitle() {return title;}
-    public String getVenue() {return venue;}
-    public LocalDateTime getEventDate() {return eventdate;}
-    public boolean isCancelled() {return cancelled;}
-    public void setCancelled(boolean cancelled) {this.cancelled = cancelled;}
-    @Override
-    public String toString() {
-        return "Event{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", venue='" + venue + '\'' +
-                ", eventdate=" + eventdate +
-                ", cancelled=" + cancelled +
-                '}';
+
+    public int getId() { return id; }
+    public String getTitle() { return title; }
+    public String getVenue() { return venue; }
+    public LocalDateTime getEventDate() { return eventDate; }
+    public boolean isCancelled() { return cancelled; }
+
+    public static class Builder {
+        private int id;
+        private String title;
+        private String venue;
+        private LocalDateTime eventDate;
+        private boolean cancelled;
+
+        public Builder setId(int id) { this.id = id; return this; }
+        public Builder setTitle(String title) { this.title = title; return this; }
+        public Builder setVenue(String venue) { this.venue = venue; return this; }
+        public Builder setDate(LocalDateTime date) { this.eventDate = date; return this; }
+        public Builder setCancelled(boolean cancelled) { this.cancelled = cancelled; return this; }
+
+        public Event build() { return new Event(this); }
     }
 }
