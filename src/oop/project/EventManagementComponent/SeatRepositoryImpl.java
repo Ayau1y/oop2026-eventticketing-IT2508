@@ -96,7 +96,6 @@ public class SeatRepositoryImpl implements ISeatRepository {
         }
     }
 
-    // Helper to keep code clean and DRY
     private Seat mapResultSetToSeat(ResultSet rs) throws SQLException {
         return new Seat(
                 rs.getInt("id"),
