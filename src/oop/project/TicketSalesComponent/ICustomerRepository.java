@@ -1,5 +1,6 @@
 package oop.project.TicketSalesComponent;
 
-public interface ICustomerRepository extends oop.project.repositories.interfaces.IRepository<Customer> {
+import oop.project.generalInteface.IRepository;
 
+public interface ICustomerRepository extends IRepository<Customer> {
 }

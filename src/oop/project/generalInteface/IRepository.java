@@ -1,4 +1,4 @@
-package oop.project.repositories.interfaces;
+package oop.project.generalInteface;
 import java.util.List;
 
 public interface IRepository<T> {

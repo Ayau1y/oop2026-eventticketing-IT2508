@@ -34,6 +34,7 @@ public class Main {
             System.out.println("2. Search Events by Title");
             System.out.println("3. Buy Ticket ");
             System.out.println("4. Check Seat Availability");
+            System.out.println("5. Ticked code check");
             System.out.println("0. Exit");
             System.out.print("Select an option: ");
 
@@ -97,6 +98,19 @@ public class Main {
                             System.out.println("❌ Seat " + checkSNum + " is NOT available or doesn't exist.");
                         }
                         break;
+                    case 5:
+                        System.out.print("Enter your Ticket Code (e.g., TICKET-001): ");
+                        String code = scanner.nextLine();
+
+                        try {
+                            Ticket t = ticketService.getTicketByCode(code);
+                            System.out.println("✅ Ticket Verified!");
+                            System.out.println("Event ID: " + t.getEventId());
+                            System.out.println("Type: " + t.getClass().getSimpleName());
+                            System.out.println("Price: $" + t.getPrice());
+                        } catch (InvalidTicketCodeException e) {
+                            System.out.println("❌ " + e.getMessage());
+                        }
                     default:
                         System.out.println("Invalid choice.");
                 }

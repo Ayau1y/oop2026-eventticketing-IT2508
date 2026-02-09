@@ -1,5 +1,7 @@
 package oop.project.TicketSalesComponent;
 
-public interface ITicketRepository extends oop.project.repositories.interfaces.IRepository<Ticket> {
+import oop.project.generalInteface.IRepository;
+
+public interface ITicketRepository extends IRepository<Ticket> {
     Ticket findByCode(String code);
 }
