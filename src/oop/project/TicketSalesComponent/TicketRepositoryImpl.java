@@ -90,7 +90,7 @@ public class TicketRepositoryImpl implements ITicketRepository {
                 rs.getString("code"),
                 rs.getInt("event_id"),
                 rs.getInt("seat_id"),
-                null, // Customer can be loaded via a CustomerService if needed
+                null,
                 rs.getDouble("price")
         );
     }

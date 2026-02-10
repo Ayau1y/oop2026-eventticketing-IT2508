@@ -93,9 +93,9 @@ public class Main {
                         boolean isFree = seatRepo.isSeatAvailable(checkEid, checkSNum);
 
                         if (isFree) {
-                            System.out.println("✅ Seat " + checkSNum + " is AVAILABLE");
+                            System.out.println(" Seat " + checkSNum + " is AVAILABLE");
                         } else {
-                            System.out.println("❌ Seat " + checkSNum + " is NOT available or doesn't exist.");
+                            System.out.println("Seat " + checkSNum + " is NOT available or doesn't exist.");
                         }
                         break;
                     case 5:
@@ -104,12 +104,12 @@ public class Main {
 
                         try {
                             Ticket t = ticketService.getTicketByCode(code);
-                            System.out.println("✅ Ticket Verified!");
+                            System.out.println(" Ticket Verified!");
                             System.out.println("Event ID: " + t.getEventId());
                             System.out.println("Type: " + t.getClass().getSimpleName());
                             System.out.println("Price: $" + t.getPrice());
                         } catch (InvalidTicketCodeException e) {
-                            System.out.println("❌ " + e.getMessage());
+                            System.out.println( e.getMessage());
                         }
                     default:
                         System.out.println("Invalid choice.");
